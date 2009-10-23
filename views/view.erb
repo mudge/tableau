@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="/css/h.css">
+  <link rel="stylesheet" type="text/css" href="/css/s.css">
+  <title>Pastie</title>
+</head>
+<body>
+ <div class="container">
+  <% if @version.paste.description %>
+  <div class="description">
+   Description:
+   <%= @version.paste.description %>
+  </div>
+  <% end %>
+  <div class="allcode">
+   <table cellpadding="0" cellspacing="0" border="0">
+   <tbody>
+    <tr>
+     <td>
+      <pre class="source-numbers"><% @version.text.split("\n").length.times do |number| %><%= number + 1 %>
+<% end %></pre>
+   </td>
+   <td>
+    <pre class="source-code"><%= highlight @version.text, @version.highlight %></pre>
+   </td>
+  </tr>
+  </tbody>
+ </table>
+ </div>
+ <div class="versions">
+  Versions
+  <ul class="source-versions">
+    <% @version.paste.versions.each do |version| %>
+      <li><a href="/<%= @version.paste_id %>/<%= version.id %>"><%= timeago(version.created_at) %></a> by <%= @version.paster %></li>
+    <% end %>
+  </ul>
+ </div>
+ <a href="/edit/<%= @version.id %>">Edit</a>
+ </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  margin: 20px;
+  line-height: 1.4;
+}
+textarea#paste {
+  width: 800px;
+}
+
+form#pastie {
+  width: 800px;
+}
+
+.allcode {
+  overflow: auto;
+  border: 1px solid #999;
+  float: left;
+  width: 75%;
+}
+
+.allcode table tr td {
+  vertical-align:top;
+}
+
+pre.source-numbers {
+  text-align: right;
+  margin-top: 0;
+  padding: 0 5px;
+  background: #eee;
+}
+
+.versions {
+  float: right;
+  font-size: 12px;
+  min-width: 20%;
+}
+
+div ul li {
+  list-style-type: none;
+  text-decoration: none;
+}
