@@ -5,7 +5,7 @@ require 'erb'
 require 'albino'
 require 'time_ago'
 
-DB = Sequel.mysql 'pastie', :user => 'pastie', :password => 'pastie', :host => 'jasonx'
+DB = Sequel.mysql 'tableau', :user => 'tableau', :password => 'tableau', :host => 'localhost'
 
 class Paste < Sequel::Model
   plugin :validation_helpers
