@@ -6,39 +6,49 @@ html {
   margin: 20px;
   line-height: 1.4;
 }
-textarea#paste {
-  width: 800px;
+div#content {
+  min-width: 450px;
+  min-height: 330px;
+  width: 70%;
 }
-
-form#pastie {
-  width: 800px;
+textarea {
+  width: 100%;
 }
-
+.block {
+  width: 70%;
+  float: left;
+  padding: 15px;
+}
 .allcode {
   overflow: auto;
   border: 1px solid #999;
-  float: left;
-  width: 75%;
+  width: 100%;
 }
-
-.allcode table tr td {
-  vertical-align:top;
-}
-
 pre.source-numbers {
   text-align: right;
   margin-top: 0;
   padding: 0 5px;
   background: #eee;
 }
-
-.versions {
-  float: right;
-  font-size: 12px;
-  min-width: 20%;
+.side {
+  float: left;
+  padding: 15px;
 }
-
+.versions {
+  padding-top: 15px;
+}
+.comments {
+  width: 100%;
+  padding-top: 15px;
+}
 div ul li {
   list-style-type: none;
   text-decoration: none;
+}
+ul#comment {
+  padding-top: 15px;
+}
+.comments, .side {
+  color:#888888;
+  font: small/1.4 Helvetica, sans-serif;
 }

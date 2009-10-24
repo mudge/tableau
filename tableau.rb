@@ -15,6 +15,7 @@ end
 
 class Version < Sequel::Model
   many_to_one :paste
+  one_to_many :comments
   plugin :validation_helpers
   self.raise_on_typecast_failure = false
 
@@ -28,6 +29,11 @@ class Version < Sequel::Model
 end
 
 class Comment < Sequel::Model
+  many_to_one :version
+  plugin :validation_helpers
+  self.raise_on_typecast_failure = false
+
+  set_dataset dataset.reverse_order(:created_at)
   def validate
     validates_presence(:text, :message => "can't be empty")
     validates_presence(:version_id, :message => "can't be empty")
@@ -55,6 +61,14 @@ get '/:id' do
   @paste = Paste[params[:id]]
   @version = @paste.versions.first
   erb :view
+end
+
+post '/:paste_id/comment/:version_id' do
+  @comment = Comment.new(params[:comment].merge(:paster => request.ip, :version_id => params[:version_id]))
+  if @comment.valid?
+    @comment.save
+  end
+  redirect "/#{params[:paste_id]}/#{params[:version_id]}"
 end
 
 get '/edit/:version_id' do

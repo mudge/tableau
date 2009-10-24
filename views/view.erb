@@ -5,16 +5,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="/css/h.css">
   <link rel="stylesheet" type="text/css" href="/css/s.css">
-  <title>Pastie</title>
+  <title>Tableau</title>
 </head>
 <body>
  <div class="container">
-  <% if @version.paste.description %>
-  <div class="description">
-   Description:
-   <%= @version.paste.description %>
-  </div>
-  <% end %>
+  <div class="block">
   <div class="allcode">
    <table cellpadding="0" cellspacing="0" border="0">
    <tbody>
@@ -30,6 +25,35 @@
   </tbody>
  </table>
  </div>
+  <a href="/edit/<%= @version.id %>">Edit</a>
+ <div class="comments">
+  <form id="comment" method="post" action="/<%= @version.paste_id %>/comment/<%= @version.id %>">
+   <p>
+    <textarea id="add_comment" name="comment[text]"></textarea>
+   </p>
+   <p>
+    <input type="hidden" name="comment[created_at]" value="<%=h Time.now.xmlschema %>">
+    <input type="submit" value="Comment">
+   </p>
+  </form>
+  <% if @version.comments %>
+   <ul id="comment">
+   <% @version.comments.each do |comment| %>
+    <li>
+    <%= comment.text %><br />
+    posted at <%= timeago(comment.created_at) %> by <%= comment.paster %>
+    </li>
+   <% end %>
+  </ul>
+  <% end %>
+ </div>
+ </div>
+  <div class="side">
+  <% if @version.paste.description %>
+  <div class="description">
+   <%= @version.paste.description %>
+  </div>
+  <% end %>
  <div class="versions">
   Versions
   <ul class="source-versions">
@@ -38,7 +62,17 @@
     <% end %>
   </ul>
  </div>
- <a href="/edit/<%= @version.id %>">Edit</a>
  </div>
 </body>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("jquery", "1.2");
+</script>
+<script src="http://dev.jquery.com/~john/plugins/profile/jquery-profile.js"></script>
+<script type="text/javascript" src="/js/mucur.js"></script>
+<script type="text/javascript">
+$(function() {
+          $('textarea#add_comment').example('Add Comment');
+          });
+</script>
 </html>

@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="/css/s.css">
-  <title>Pastie</title>
+  <title>Tableau</title>
 </head>
 <body>
- <dl id="content">
+ <div id="content">
   <form id="pastie" method="post" action="/paste">
   <div style="float:right;">
    <label style="font-size:0.7em; color:#999">Language:</label>
@@ -34,20 +34,29 @@
     <option value="yaml">YAML</option>
    </select>
   </div>
-
    <p>
-    <label for="paste">Enter your crap below:</label><br>
-    <textarea id="paste" name="version[text]" rows="22" cols="40" tabindex="20"></textarea>
+    <textarea id="paste_text" name="version[text]" rows="22" cols="40" tabindex="20"></textarea>
    </p>
    <p>
-    <label for="paste">Description:</label><br>
-    <textarea id="paste" name="paste[description]"></textarea>
+    <textarea id="paste_description" name="paste[description]"></textarea>
    </p>
    <p>
     <input type="hidden" name="version[created_at]" value="<%=h Time.now.xmlschema %>">
     <input type="submit" value="Paste">
    </p>
   </form>
- </dl>
+ </div>
 </body>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("jquery", "1.2");
+</script>
+<script src="http://dev.jquery.com/~john/plugins/profile/jquery-profile.js"></script>
+<script type="text/javascript" src="/js/mucur.js"></script>
+<script type="text/javascript">
+$(function() {
+          $('textarea#paste_text').example('Enter your crap here');
+          $('textarea#paste_description').example('Description');
+          });
+</script>
 </html>
