@@ -24,11 +24,20 @@ textarea {
   border: 1px solid #999;
   width: 100%;
 }
+.allcode-light {
+  overflow: auto;
+  border: 1px solid #999;
+  width: 100%;
+  margin-bottom: 20px;
+}
 pre.source-numbers {
   text-align: right;
   margin-top: 0;
   padding: 0 5px;
   background: #eee;
+}
+pre.source-code {
+ padding: 0 0 0 15px;
 }
 .side {
   float: left;
@@ -48,7 +57,11 @@ div ul li {
 ul#comment {
   padding-top: 15px;
 }
-.comments, .side {
+
+div.info {
+  float: right;
+}
+.comments, .side, .info {
   color:#888888;
   font: small/1.4 Helvetica, sans-serif;
 }

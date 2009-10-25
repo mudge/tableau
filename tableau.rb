@@ -53,6 +53,11 @@ class Object
   end
 end
 
+get '/pastes' do
+  @pastes = Paste
+  erb :pastes
+end
+
 get '/' do
   erb :index
 end
