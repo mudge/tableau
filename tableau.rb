@@ -2,7 +2,6 @@
 $:.unshift(File.dirname(__FILE__) + '/lib')
 
 # Dependencies.
-require 'rubygems'
 require 'sinatra'
 require 'sequel'
 require 'erb'
@@ -52,10 +51,6 @@ class Version < Sequel::Model
   self.raise_on_typecast_failure = false
 
   set_dataset dataset.reverse_order(:created_at)
-
-  def description
-    paste.description
-  end
 
   def validate
     validates_presence(:text, :message => "can't be empty")
