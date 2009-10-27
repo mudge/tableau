@@ -45,7 +45,7 @@ require 'open4'
  
 class Albino
 #  @@bin = Rails.development? ? 'pygmentize' : '/usr/bin/pygmentize'
-  @@bin = '/usr/bin/pygmentize'
+  @@bin = '/usr/local/bin/pygmentize'
  
   def self.bin=(path)
     @@bin = path

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="/css/h.css">
+  <link rel="stylesheet" type="text/css" href="/css/s.css">
+  <title>Tableau</title>
+</head>
+<body>
+  <h1><a href="/">Tableau</a></h1>
+  <p><%=h @paste.description %></p>
+  <div class="paste">
+    <%= highlight(@version.text, @version.language) %>
+    <p><a href="/<%= @paste.id %>/edit">Edit</a></p>
+  </div>
+  <h2>All Versions</h2>
+  <ol>
+    <% @paste.versions_dataset.each do |version| %>
+      <li><a href="/<%= @paste.id %>/<%= version.id %>"><%= version.created_at %></a> by <%=h version.ip_address %></li>
+    <% end %>
+  </ol>
+</body>
+</html>

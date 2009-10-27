@@ -1,67 +1,28 @@
-* {
-  margin: 0;
-  padding: 0;
-}
 html {
-  margin: 20px;
-  line-height: 1.4;
+  padding: 20px;
+  font: medium/1.4 sans-serif;
 }
-div#content {
-  min-width: 450px;
-  min-height: 330px;
-  width: 70%;
-}
-textarea {
-  width: 100%;
-}
-.block {
-  width: 70%;
-  float: left;
-  padding: 15px;
-}
-.allcode {
-  overflow: auto;
-  border: 1px solid #999;
-  width: 100%;
-}
-.allcode-light {
-  overflow: auto;
-  border: 1px solid #999;
-  width: 100%;
-  margin-bottom: 20px;
-}
-pre.source-numbers {
+.languages {
   text-align: right;
-  margin-top: 0;
-  padding: 0 5px;
-  background: #eee;
 }
-pre.source-code {
- padding: 0 0 0 15px;
-}
-.side {
-  float: left;
-  padding: 15px;
-}
-.versions {
-  padding-top: 15px;
-}
-.comments {
+textarea, input[type='text'] {
   width: 100%;
-  padding-top: 15px;
 }
-div ul li {
-  list-style-type: none;
-  text-decoration: none;
+._placeholder {
+  color: #aaa;
 }
-ul#comment {
-  padding-top: 15px;
+.highlight {
+  background: #fff;
+  border: 1px solid #aaa;
+  padding: 0.2em 1em;
+  margin: 0 0 0.5em;
 }
-
-div.info {
-  float: right;
+.paste {
+  background: #eee;
+  border: 1px solid #aaa;
+  padding: 1em;
+  margin: 0 0 1em;
 }
-.comments, .side, .info {
-  color:#888888;
-  font: small/1.4 Helvetica, sans-serif;
+.paste p {
+  margin: 0;
 }
